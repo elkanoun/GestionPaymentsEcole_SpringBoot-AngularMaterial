@@ -1020,3 +1020,5 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.webjars:s
 2024-11-10 19:39:41,565 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-11-10 19:39:41,575 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-11-10 19:39:41,578 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\SpaceDeveloppement\Entretiens_2024\AngularG\AngularG_yousfi\3_Angular17-Materiel-ApiComplete2\AngMatApiComplet_Back\enset-demo-spring-ang\src\test\resources
+2024-11-12 20:06:12,290 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-11-12 20:06:12,514 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.

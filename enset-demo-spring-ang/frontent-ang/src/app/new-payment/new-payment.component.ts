@@ -15,7 +15,6 @@ export class NewPaymentComponent implements OnInit {
   paymentTypes : string[]=[];
   pdfFileUrl! : string;
 
-
   constructor(private fb : FormBuilder, 
               private activatedRoute : ActivatedRoute,
               private studentService : StudentsService){
@@ -41,7 +40,7 @@ export class NewPaymentComponent implements OnInit {
   }
 
   //method selectFile($event)
-  selectFile(event : any){
+  selectFile(event:any){
     if(event.target.files.lenght>0){
       let file = event.target.files[0];
       this.paymentFormGroup.patchValue({
