@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
@@ -30,8 +30,8 @@ export class StudentsService {
   }
 
   //method save payment
-  public savePayment(formData : any):Observable<Payment>{
-    return this.http.post<Payment>(environment.backendHost+"/payments", formData);
+  public savePayment(formData : any, headers : HttpHeaders):Observable<Payment>{
+    return this.http.post<Payment>(environment.backendHost+"/payments", formData, { headers });
   }
 
 

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PaymentType } from '../models/students.model';
 import { StudentsService } from '../services/students.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-payment',
@@ -41,8 +42,8 @@ export class NewPaymentComponent implements OnInit {
 
   //method selectFile($event)
   selectFile(event:any){
-    if(event.target.files.lenght>0){
-      let file = event.target.files[0];
+    if(event.target.files.length>0){
+      let file : File = event.target.files[0];
       this.paymentFormGroup.patchValue({
         fileSource : file,
         fileName : file.name
@@ -54,14 +55,20 @@ export class NewPaymentComponent implements OnInit {
   //method savePayment()
   savePayment(){
     let date : Date = new Date(this.paymentFormGroup.value.date);
-    let formattedDate = date.getDay()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+    let formattedDate = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+
     let formData : FormData = new FormData();
     formData.set('date', formattedDate);
     formData.set('amount', this.paymentFormGroup.value.amount);
     formData.set('type', this.paymentFormGroup.value.type);
     formData.set('studentCode', this.paymentFormGroup.value.studentCode);
-    formData.set('file', this.paymentFormGroup.value.fileSource);
-    this.studentService.savePayment(formData).subscribe({
+    formData.append('file', this.paymentFormGroup.value.fileSource);
+
+    const headers : HttpHeaders = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*'
+    });
+    
+    this.studentService.savePayment(formData, headers).subscribe({
       next : value => {
         alert('Payment saved successfully!');
       },

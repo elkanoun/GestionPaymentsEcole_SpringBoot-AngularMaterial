@@ -5,7 +5,6 @@ import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -16,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import smartsofts.api.ensetdemospringang.dtos.NewPaymentDTO;
 import smartsofts.api.ensetdemospringang.entities.Payment;
 import smartsofts.api.ensetdemospringang.entities.PaymentStatus;
-import smartsofts.api.ensetdemospringang.entities.PaymentType;
 import smartsofts.api.ensetdemospringang.entities.Student;
 import smartsofts.api.ensetdemospringang.repository.PaymentRepository;
 import smartsofts.api.ensetdemospringang.repository.StudentRepository;
