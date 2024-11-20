@@ -23,6 +23,7 @@
     "@angular/router": "^17.3.0",
     "add": "^2.0.6",
     "angular": "^1.8.3",
+    "ng2-pdf-viewer": "^10.3.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
