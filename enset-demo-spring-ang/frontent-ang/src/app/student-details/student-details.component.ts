@@ -13,7 +13,7 @@ export class StudentDetailsComponent implements OnInit {
   studentCode! : string;
   paymentsStudent! : Array<Payment>;
   paymentsDatasource! : MatTableDataSource<Payment>;
-  displayedColumns: string[] =["id","date","amount","type","status","firstName"]
+  displayedColumns: string[] =["id","date","amount","type","status","firstName","details"]
 
   constructor(private activatedRoute:ActivatedRoute,
               private studentsSvc:StudentsService,
@@ -38,6 +38,11 @@ export class StudentDetailsComponent implements OnInit {
   //method new payment
   newPayment(){
     this.router.navigateByUrl('/admin/new-payment/'+this.studentCode);  
+  }
+
+  //method details payment
+  paymentDetails(payment: Payment){
+    this.router.navigateByUrl("/admin/payment-details/"+payment.id);
   }
 
 }
