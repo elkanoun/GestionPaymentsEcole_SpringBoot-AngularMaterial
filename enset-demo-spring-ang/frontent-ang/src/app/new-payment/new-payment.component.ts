@@ -15,6 +15,7 @@ export class NewPaymentComponent implements OnInit {
   studentCode! : string;
   paymentTypes : string[]=[];
   pdfFileUrl! : string;
+  showProgress : boolean = false;
 
   constructor(private fb : FormBuilder, 
               private activatedRoute : ActivatedRoute,
@@ -48,12 +49,13 @@ export class NewPaymentComponent implements OnInit {
         fileSource : file,
         fileName : file.name
       });
-      //this.pdfFileUrl = window.URL.createObjectURL(file);
+      this.pdfFileUrl = window.URL.createObjectURL(file);
     }
   }
 
   //method savePayment()
   savePayment(){
+    this.showProgress = true;
     let date : Date = new Date(this.paymentFormGroup.value.date);
     let formattedDate = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
 
@@ -70,12 +72,18 @@ export class NewPaymentComponent implements OnInit {
     
     this.studentService.savePayment(formData, headers).subscribe({
       next : value => {
+        this.showProgress = false;
         alert('Payment saved successfully!');
       },
       error : err => {
         console.log(err);
       }
     });
+  }
+
+  //method afterLoadComplete
+  afterLoadComplete(event:any){
+    console.log(event);
   }
 
 }
